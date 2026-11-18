@@ -254,7 +254,7 @@
     <a href="#experience">Experience</a>
     <a href="#stack">Stack</a>
     <a href="#contact">Contact</a>
-    <a class="resume" href="https://www.linkedin.com/in/sourav-dhar-ai-engineer/">LinkedIn</a>
+    <a class="resume" href="resume.pdf">Résumé</a>
   </nav>
 </header>
 
@@ -266,7 +266,7 @@
       <p class="lede">AI engineer with <strong>11 years</strong> in data and ML. I'm a key contributor to a <strong>120B-parameter mixture-of-experts foundation model</strong> being built at The School of AI. Before that I led compliance analytics (AI/ML) at TerraPay, running LLM agents in production for a cross-border payments network.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:dharsourav03@gmail.com">Email me</a>
-        <a class="btn ghost" href="#models">See my work</a>
+        <a class="btn ghost" href="resume.pdf">Download résumé</a>
       </div>
     </div>
 
@@ -369,12 +369,16 @@
         <p class="where">Multi-agent support · TerraPay</p>
       </div>
       <div>
-        <p class="summary">A team of AI agents that handles customer-support queries about cross-border transactions, working directly with the ticketing system.</p>
+        <p class="summary">A team of AI agents that resolves customer-support tickets about cross-border transactions, from inbox to reply.</p>
         <dl>
-          <dt>Agents</dt><dd>Multi-agent workflow built in LangGraph.</dd>
-          <dt>Integration</dt><dd>Reads and updates Freshdesk tickets through an MCP server; streams responses over SSE.</dd>
-          <dt>Interface</dt><dd>Chainlit front end for the support team.</dd>
+          <dt>Intake</dt><dd>Unifies Outlook queries into Freshdesk tickets; classification agents label each by intent (status, cancellation, reversal, failure).</dd>
+          <dt>Resolution</dt><dd>Extracts transaction IDs, runs database and API lookups, and routes to specialised LangGraph nodes with tool calling and memory.</dd>
+          <dt>Integration</dt><dd>Freshdesk through an MCP server, SSE streaming, Chainlit front end.</dd>
         </dl>
+        <div class="result">
+          <div><b>60%</b>of tickets automated</div>
+          <div><b>4h → 15m</b>average response time</div>
+        </div>
       </div>
     </article>
 
@@ -407,19 +411,19 @@
       <thead><tr><th scope="col">Project</th><th scope="col">What it does</th><th scope="col">Built with</th></tr></thead>
       <tbody>
         <tr>
-          <td>Regulatory horizon scanner</td>
-          <td>Monitors the FCA and other regulators for new publications so compliance hears about changes early.</td>
+          <td>Regulatory horizon scanner<span class="tag">~40% less review effort</span></td>
+          <td>Monitors FCA and FATF publications daily, triages relevance with an LLM and sends cited summaries, alerts and a weekly digest.</td>
           <td>LangChain Deep Agents, Firecrawl, sitemap monitoring</td>
         </tr>
         <tr>
           <td>AML rule testing assistant</td>
-          <td>Compliance analysts ask questions in plain English and get SQL run against transaction data.</td>
-          <td>LangGraph text-to-SQL agent, PostgreSQL</td>
+          <td>Compliance analysts describe a new AML rule in plain English and sandbox-test it on live data, with no analytics-team dependency.</td>
+          <td>LangGraph text-to-SQL, FastAPI, PostgreSQL, Langfuse</td>
         </tr>
         <tr>
           <td>AML fraud detection model<span class="tag">35% fewer false positives</span></td>
-          <td>Flags suspicious transactions with far fewer false alarms for analysts to clear.</td>
-          <td>XGBoost, feature engineering on payment data</td>
+          <td>Ranks transaction-monitoring alerts from 50K+ daily transactions so analysts review the riskiest first, with SHAP explanations for audit.</td>
+          <td>XGBoost, Optuna, SHAP</td>
         </tr>
         <tr>
           <td>Adverse media screening agent</td>
@@ -438,8 +442,13 @@
         </tr>
         <tr>
           <td>Credit risk scorecard<span class="tag">AUC 0.78</span></td>
-          <td>Scores applicants for lending at India Post Payments Bank.</td>
+          <td>Decile-based scorecard for loan disbursement at India Post Payments Bank, monitored on Gini, KS and PSI.</td>
           <td>Logistic regression, WoE / IV binning</td>
+        </tr>
+        <tr>
+          <td>Lead propensity model<span class="tag">150K+ customers</span></td>
+          <td>Targets financial-product campaigns at India Post, with Power BI tracking of campaign ROI.</td>
+          <td>Logistic regression, Power BI</td>
         </tr>
       </tbody>
     </table>
@@ -449,29 +458,37 @@
   <section id="experience" class="wrap">
     <div class="section-head">
       <h2>Experience</h2>
-      <p>From analytics and credit risk into production AI for compliance.</p>
+      <p>From analytics and credit risk into production AI. PG in AI and ML, Great Learning (UT Austin), 2023; B.Tech, NIT Agartala, 2013.</p>
     </div>
     <ol class="roles">
       <li>
         <div>
           <p class="org">TerraPay</p>
-          <!-- EDIT: dates -->
-          <p class="when">Cross-border payments</p>
+          <p class="when">May 2024 – Aug 2026 · Cross-border payments</p>
         </div>
         <div>
-          <p class="title">Senior Technical Team Lead, Compliance Analytics (AI/ML)</p>
+          <p class="title">Senior Technical Team Lead, Analytics and AI</p>
           <p class="desc">Led the team building AI and ML systems for financial-crime compliance: RAG assistants, multi-agent support automation, AML graph analytics and transaction-monitoring models. Ran the platform on roughly 60 Docker services across dedicated servers, with self-hosted Langfuse for observability.</p>
         </div>
       </li>
       <li>
         <div>
           <p class="org">India Post Payments Bank</p>
-          <!-- EDIT: dates -->
-          <p class="when">Payments bank</p>
+          <p class="when">Jul 2021 – Sep 2023</p>
         </div>
         <div>
           <p class="title">Lead Data Analyst</p>
-          <p class="desc">Built credit risk scorecards and analytics for a national payments bank.</p>
+          <p class="desc">Led the credit risk scorecard used for loan disbursement, with version-controlled deployment, automated validation and drift monitoring.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="org">India Post</p>
+          <p class="when">Jul 2015 – Jun 2021</p>
+        </div>
+        <div>
+          <p class="title">Business Data Analyst</p>
+          <p class="desc">Built propensity models and Power BI dashboards for financial-product campaigns across 150K+ customers.</p>
         </div>
       </li>
     </ol>
@@ -505,6 +522,7 @@
       <a class="btn primary" href="mailto:dharsourav03@gmail.com">Email me</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/sourav-dhar-ai-engineer/">LinkedIn</a>
       <a class="btn ghost" href="https://github.com/sourav-dhar">GitHub</a>
+      <a class="btn ghost" href="resume.pdf">Download résumé</a>
     </div>
   </section>
 </main>
